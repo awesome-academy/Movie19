@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Movie19</string>
+
     <string name="title_logo">MINO TRAILER</string>
+    <string name="title_navigation_movie">Movie</string>
+    <string name="title_navigation_category">Category</string>
+    <string name="title_navigation_favorite">Favorite</string>
 </resources>
