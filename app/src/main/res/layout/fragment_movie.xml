@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.sunasterisk.movie19.ui.movie.MovieViewModel" />
@@ -12,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorAlabaster"
-        tools:context=".ui.movie.MovieFragment">
+        tools:context=".ui.movie.view.MovieFragment">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"

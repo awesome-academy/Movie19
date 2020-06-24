@@ -1,4 +1,4 @@
-package com.sunasterisk.movie19.ui.movie
+package com.sunasterisk.movie19.ui.movie.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,9 +8,10 @@ import com.sunasterisk.movie19.R
 import com.sunasterisk.movie19.base.BaseAdapter
 import com.sunasterisk.movie19.data.model.MovieParent
 import com.sunasterisk.movie19.databinding.MovieParentItemBinding
+import com.sunasterisk.movie19.ui.movie.viewholder.MovieParentViewHolder
 
 class MovieParentAdapter : BaseAdapter<MovieParent, MovieParentViewHolder>(
-    MovieParentTaskDiffCallback()
+    MovieParentDiffCallback()
 ) {
     private val viewPool = RecyclerView.RecycledViewPool()
 

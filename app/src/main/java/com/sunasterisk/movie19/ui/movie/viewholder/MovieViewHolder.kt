@@ -1,4 +1,4 @@
-package com.sunasterisk.movie19.ui.movie
+package com.sunasterisk.movie19.ui.movie.viewholder
 
 import com.sunasterisk.movie19.BR
 import com.sunasterisk.movie19.base.BaseViewHolder

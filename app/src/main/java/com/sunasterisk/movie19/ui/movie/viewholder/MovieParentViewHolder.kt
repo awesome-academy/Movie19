@@ -1,27 +1,27 @@
-package com.sunasterisk.movie19.ui.movie
+package com.sunasterisk.movie19.ui.movie.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
 import com.sunasterisk.movie19.BR
 import com.sunasterisk.movie19.base.BaseViewHolder
 import com.sunasterisk.movie19.data.model.MovieParent
 import com.sunasterisk.movie19.databinding.MovieParentItemBinding
+import com.sunasterisk.movie19.ui.movie.adapter.MovieAdapter
 
 class MovieParentViewHolder(
     private val binding: MovieParentItemBinding,
     private val viewPool: RecyclerView.RecycledViewPool
-) : BaseViewHolder<MovieParent>(
-    binding.root
-) {
+) : BaseViewHolder<MovieParent>(binding.root) {
 
     init {
-        val adapter = MovieAdapter()
-        binding.recyclerViewMovieParentItem.adapter = adapter
+        binding.recyclerViewMovieParentItem.apply {
+            setRecycledViewPool(viewPool)
+            adapter = MovieAdapter()
+        }
     }
 
     override fun bindData(item: MovieParent) {
         super.bindData(item)
         binding.apply {
-            recyclerViewMovieParentItem.setRecycledViewPool(viewPool)
             setVariable(BR.movieParent, item)
             executePendingBindings()
         }
