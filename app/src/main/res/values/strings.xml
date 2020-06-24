@@ -5,4 +5,11 @@
     <string name="title_navigation_movie">Movie</string>
     <string name="title_navigation_category">Category</string>
     <string name="title_navigation_favorite">Favorite</string>
+
+    <string name="title_see_all">See all</string>
+
+    <string name="text_section_upcoming">Up Coming</string>
+    <string name="text_section_toprated">Top Rated</string>
+    <string name="text_section_popular">Popular</string>
+    <string name="text_see_nowplaying">Now Playing</string>
 </resources>
