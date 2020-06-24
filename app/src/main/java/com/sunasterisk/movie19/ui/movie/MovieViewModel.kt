@@ -53,7 +53,6 @@ class MovieViewModel(private val repository: MovieRepository) : BaseViewModel() 
         getTopRated(Constants.DEFAULT_PAGE)
         getPopular(Constants.DEFAULT_PAGE)
         getNowPlaying(Constants.DEFAULT_PAGE)
-
         Observable.zip(
             upComing,
             topRated,

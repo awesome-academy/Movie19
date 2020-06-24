@@ -1,4 +1,4 @@
-package com.sunasterisk.movie19.ui.movie
+package com.sunasterisk.movie19.ui.movie.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,9 +7,10 @@ import com.sunasterisk.movie19.R
 import com.sunasterisk.movie19.base.BaseAdapter
 import com.sunasterisk.movie19.data.model.Movie
 import com.sunasterisk.movie19.databinding.MovieChildItemBinding
+import com.sunasterisk.movie19.ui.movie.viewholder.MovieViewHolder
 
 class MovieAdapter : BaseAdapter<Movie, MovieViewHolder>(
-    MovieTaskDiffCallback()
+    MovieDiffCallback()
 ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -19,6 +20,8 @@ class MovieAdapter : BaseAdapter<Movie, MovieViewHolder>(
             parent,
             false
         )
-        return MovieViewHolder(inflater)
+        return MovieViewHolder(
+            inflater
+        )
     }
 }
