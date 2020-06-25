@@ -7,9 +7,7 @@ import com.sunasterisk.movie19.databinding.MovieChildItemBinding
 
 class MovieViewHolder(
     val databinding: MovieChildItemBinding
-) : BaseViewHolder<Movie>(
-    databinding.root
-) {
+) : BaseViewHolder<Movie>(databinding.root) {
 
     override fun bindData(item: Movie) {
         super.bindData(item)
