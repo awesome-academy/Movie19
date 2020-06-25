@@ -6,6 +6,7 @@ import com.sunasterisk.movie19.base.BaseViewHolder
 import com.sunasterisk.movie19.data.model.MovieParent
 import com.sunasterisk.movie19.databinding.MovieParentItemBinding
 import com.sunasterisk.movie19.ui.movie.adapter.MovieAdapter
+import com.sunasterisk.movie19.ui.moviedetail.MovieDetailActivity
 
 class MovieParentViewHolder(
     private val binding: MovieParentItemBinding,
@@ -15,7 +16,11 @@ class MovieParentViewHolder(
     init {
         binding.recyclerViewMovieParentItem.apply {
             setRecycledViewPool(viewPool)
-            adapter = MovieAdapter()
+            adapter = MovieAdapter().apply {
+                setItemClick {
+                    context.startActivity(MovieDetailActivity.getIntent(context, it))
+                }
+            }
         }
     }
 

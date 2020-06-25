@@ -5,4 +5,5 @@ object Constants {
     const val NAME_API = "api_key"
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val DEFAULT_PAGE = 1
+    const val EXTRA_ID_MOVIE = "IdMovie"
 }

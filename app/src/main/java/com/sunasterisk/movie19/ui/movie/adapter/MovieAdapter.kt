@@ -9,9 +9,13 @@ import com.sunasterisk.movie19.data.model.Movie
 import com.sunasterisk.movie19.databinding.MovieChildItemBinding
 import com.sunasterisk.movie19.ui.movie.viewholder.MovieViewHolder
 
-class MovieAdapter : BaseAdapter<Movie, MovieViewHolder>(
-    MovieDiffCallback()
-) {
+class MovieAdapter : BaseAdapter<Movie, MovieViewHolder>(MovieDiffCallback()) {
+
+    private lateinit var onItemClick: (Movie) -> Unit
+
+    fun setItemClick(onItemClick: (Movie) -> Unit) {
+        this.onItemClick = onItemClick
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val inflater = DataBindingUtil.inflate<MovieChildItemBinding>(
@@ -20,8 +24,6 @@ class MovieAdapter : BaseAdapter<Movie, MovieViewHolder>(
             parent,
             false
         )
-        return MovieViewHolder(
-            inflater
-        )
+        return MovieViewHolder(inflater).apply { setItemClick(onItemClick) }
     }
 }
