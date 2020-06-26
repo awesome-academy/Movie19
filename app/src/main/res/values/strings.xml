@@ -15,4 +15,7 @@
 
     <string name="title_toolbar_category">CATEGORY</string>
     <string name="title_toolbar_movie">ovie</string>
+    <string name="title_cast"><![CDATA[Full Cast & Crew]]></string>
+    <string name="title_overview">Overview</string>
+    <string name="title_release_date">Release Date</string>
 </resources>

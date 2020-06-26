@@ -16,10 +16,12 @@ object CustomBindingAdapter {
 
     @JvmStatic
     @BindingAdapter("imageUrl")
-    fun loadImage(image: ImageView, urlImage: String) {
-        Glide.with(image.context)
-            .load(Constants.IMAGE_URL + urlImage)
-            .into(image)
+    fun loadImage(image: ImageView, urlImage: String?) {
+        urlImage?.let {
+            Glide.with(image.context)
+                .load(Constants.IMAGE_URL + urlImage)
+                .into(image)
+        }
     }
 
     @JvmStatic

@@ -1,6 +1,8 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/ic_bg_splashscreen" />
-    <item android:drawable="@drawable/ic_bg_splashscreen2" android:top="149dp"/>
+    <item
+        android:drawable="@drawable/ic_bg_splashscreen2"
+        android:top="149dp" />
     <item
         android:width="102dp"
         android:height="107dp"
