@@ -2,7 +2,6 @@ package com.sunasterisk.movie19.data.api
 
 import com.sunasterisk.movie19.data.model.Data
 import com.sunasterisk.movie19.data.model.DataGenre
-import com.sunasterisk.movie19.data.model.Genre
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
