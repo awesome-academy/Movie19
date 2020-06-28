@@ -4,12 +4,14 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.sunasterisk.movie19.data.model.Cast
 import com.sunasterisk.movie19.data.model.Genre
 import com.sunasterisk.movie19.data.model.Movie
 import com.sunasterisk.movie19.data.model.MovieParent
 import com.sunasterisk.movie19.ui.category.adapter.GenreAdapter
 import com.sunasterisk.movie19.ui.movie.adapter.MovieAdapter
 import com.sunasterisk.movie19.ui.movie.adapter.MovieParentAdapter
+import com.sunasterisk.movie19.ui.moviedetail.adapter.CastAdapter
 import com.sunasterisk.movie19.utils.Constants
 
 object CustomBindingAdapter {
@@ -40,5 +42,11 @@ object CustomBindingAdapter {
     @BindingAdapter("dataGenre")
     fun getGenres(recyclerView: RecyclerView, genres: List<Genre>?) {
         genres?.let { (recyclerView.adapter as GenreAdapter).submitList(genres) }
+    }
+
+    @JvmStatic
+    @BindingAdapter("dataCast")
+    fun getCasts(recyclerView: RecyclerView, genres: List<Cast>?) {
+        genres?.let { (recyclerView.adapter as CastAdapter).submitList(genres) }
     }
 }

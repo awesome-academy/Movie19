@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import com.sunasterisk.movie19.R
+import com.sunasterisk.movie19.base.BaseActivity
 import com.sunasterisk.movie19.ui.main.MainActivity
 
 class SplashScreen : AppCompatActivity() {
