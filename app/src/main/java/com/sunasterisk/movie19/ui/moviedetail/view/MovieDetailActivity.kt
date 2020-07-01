@@ -17,6 +17,7 @@ import com.sunasterisk.movie19.databinding.ActivityMovieDetailBinding
 import com.sunasterisk.movie19.ui.moviedetail.MovieDetailViewModel
 import com.sunasterisk.movie19.ui.moviedetail.MovieDetailViewModelFactory
 import com.sunasterisk.movie19.ui.moviedetail.adapter.CastAdapter
+import com.sunasterisk.movie19.ui.playvideo.PlayVideoActivity
 import com.sunasterisk.movie19.utils.Constants
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 
@@ -55,7 +56,7 @@ class MovieDetailActivity : BaseActivity<ActivityMovieDetailBinding>() {
         viewModel.getMovieDetail(movieId)
 
         imageViewVideo.setOnClickListener {
-
+            startActivity(PlayVideoActivity.getIntent(this, movieId))
         }
     }
 

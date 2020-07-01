@@ -27,4 +27,7 @@ interface ApiService {
 
     @GET("movie/{movie_id}")
     fun getMovieDetail(@Path("movie_id") movieId: Int): Observable<DataMovieDetail>
+
+    @GET("movie/{movie_id}/videos")
+    fun getVideoTrailerMovie(@Path("movie_id") movieId: Int): Observable<DataVideo>
 }
