@@ -14,6 +14,7 @@ class CastViewHolder(
         databinding.apply {
             setVariable(BR.cast, item)
             executePendingBindings()
+            textViewMovie.isSelected = true
         }
     }
 }
