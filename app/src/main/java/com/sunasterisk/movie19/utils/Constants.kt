@@ -6,4 +6,5 @@ object Constants {
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val DEFAULT_PAGE = 1
     const val EXTRA_ID_MOVIE = "IdMovie"
+    const val DATABASE_NAME = "Favorite.db"
 }

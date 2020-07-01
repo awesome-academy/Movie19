@@ -23,9 +23,11 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsingtoolbarMovieDetail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:contentScrim="@color/colorAlabaster"
+                app:contentScrim="@color/colorCodGray"
+                app:expandedTitleTextAppearance="@style/NoExpandedTitle"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:scrimAnimationDuration="100">
 
@@ -40,7 +42,8 @@
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbarMovieDetail"
                     android:layout_width="match_parent"
-                    android:layout_height="?actionBarSize" />
+                    android:layout_height="?actionBarSize"
+                    app:layout_collapseMode="pin" />
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -90,14 +93,25 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageViewVideo" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textViewNameMovie"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
                     android:layout_marginBottom="@dimen/dp_10"
+                    android:ellipsize="marquee"
+                    android:fadingEdge="horizontal"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
                     android:text="@{viewModel.movieDetail.title}"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/sp_21"
                     app:layout_constraintBottom_toBottomOf="@+id/view"
-                    app:layout_constraintStart_toStartOf="@+id/guideline2" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline2"
+                    tools:ignore="EllipsizeMaxLines" />
 
                 <TextView
                     android:id="@+id/textViewTitleOverview"
@@ -125,6 +139,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewTitleOverview"
                     tools:targetApi="o" />
+
+                <ImageView
+                    android:id="@+id/imageFavorite"
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:src="@drawable/ic_favorite_black_24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewTitleOverview"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textViewTitleOverview"
+                    android:contentDescription="@null" />
 
                 <TextView
                     android:id="@+id/textViewCast"
@@ -200,6 +225,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_20"
+                    android:layout_marginBottom="@dimen/dp_20"
                     android:orientation="horizontal"
                     android:padding="@dimen/dp_10"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

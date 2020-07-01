@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/navigationFavorite"
-        android:name="com.sunasterisk.movie19.ui.favorite.FavoriteFragment"
+        android:name="com.sunasterisk.movie19.ui.favorite.view.FavoriteFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" />
 </navigation>
