@@ -1,6 +1,10 @@
 package com.sunasterisk.movie19.ui.moviedetail
 
+import android.graphics.Color
+import android.widget.Toolbar
 import androidx.databinding.ObservableField
+import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.sunasterisk.movie19.R
 import com.sunasterisk.movie19.base.BaseViewModel
 import com.sunasterisk.movie19.data.model.Cast
 import com.sunasterisk.movie19.data.model.DataMovieDetail
@@ -31,13 +35,19 @@ class MovieDetailViewModel(
             .addTo(compositeDisposable)
     }
 
-    fun getMovieDetail(movieId: Int) {
+    fun getMovieDetail(movieId: Int, toolbar: CollapsingToolbarLayout) {
         movieDetailRepository.getMovieDetail(movieId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
+            .subscribe({
                 movieDetail.set(it)
-            }
+                toolbar.title = it.title
+                toolbar.setCollapsedTitleTextColor(Color.WHITE)
+            },
+                {
+
+                }
+            )
             .addTo(compositeDisposable)
     }
 }
