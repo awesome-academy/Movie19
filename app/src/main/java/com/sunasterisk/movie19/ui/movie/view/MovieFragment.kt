@@ -12,7 +12,7 @@ import com.sunasterisk.movie19.data.source.remote.MovieRemoteDataSource
 import com.sunasterisk.movie19.databinding.FragmentMovieBinding
 import com.sunasterisk.movie19.ui.movie.adapter.MovieParentAdapter
 import com.sunasterisk.movie19.ui.movie.MovieViewModel
-import com.sunasterisk.movie19.ui.search.SearchActivity
+import com.sunasterisk.movie19.ui.search.view.SearchActivity
 import kotlinx.android.synthetic.main.fragment_movie.*
 
 class MovieFragment : BaseFragment<FragmentMovieBinding>() {

@@ -4,10 +4,10 @@ import androidx.databinding.ObservableField
 import com.sunasterisk.movie19.base.BaseViewModel
 import com.sunasterisk.movie19.data.model.Genre
 import com.sunasterisk.movie19.data.repository.GenreRepository
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.kotlin.addTo
-import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.addTo
+import io.reactivex.schedulers.Schedulers
 
 class GenreViewModel(private val repository: GenreRepository) : BaseViewModel() {
 

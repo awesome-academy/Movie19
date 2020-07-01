@@ -2,11 +2,11 @@ package com.sunasterisk.movie19.data.api
 
 import com.sunasterisk.movie19.BuildConfig
 import com.sunasterisk.movie19.utils.Constants
-import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ServiceBuilder {
@@ -27,7 +27,7 @@ object ServiceBuilder {
 
     fun <T> buildService(service: Class<T>): T = Retrofit.Builder()
         .baseUrl(Constants.BASE_URL)
-        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .client(httpClient.build())
         .build()

@@ -53,10 +53,26 @@ class MovieDetailActivity : BaseActivity<ActivityMovieDetailBinding>() {
         databinding.recyclerViewCast.adapter = castAdapter
         databinding.viewModel = viewModel
         viewModel.getCasts(movieId)
-        viewModel.getMovieDetail(movieId)
+        viewModel.getMovieDetail(movieId, collapsingtoolbarMovieDetail)
 
         imageViewVideo.setOnClickListener {
             startActivity(PlayVideoActivity.getIntent(this, movieId))
+        }
+        textViewNameMovie.isSelected = true
+        setActionbar()
+    }
+
+    fun setActionbar() {
+        setSupportActionBar(toolbarMovieDetail)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_back_white)
+            setDisplayShowHomeEnabled(true)
+            setDisplayShowTitleEnabled(false)
+        }
+
+        toolbarMovieDetail.setNavigationOnClickListener {
+            finish()
         }
     }
 

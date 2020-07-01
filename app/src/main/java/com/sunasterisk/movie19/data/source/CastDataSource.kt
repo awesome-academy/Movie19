@@ -1,7 +1,7 @@
 package com.sunasterisk.movie19.data.source
 
-import io.reactivex.rxjava3.core.Observable
 import com.sunasterisk.movie19.data.model.DataCredits
+import io.reactivex.Observable
 
 interface CastDataSource {
     interface Remote {

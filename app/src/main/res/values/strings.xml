@@ -18,4 +18,6 @@
     <string name="title_cast"><![CDATA[Full Cast & Crew]]></string>
     <string name="title_overview">Overview</string>
     <string name="title_release_date">Release Date</string>
+    <string name="title_hint_search">Search by movie name....</string>
+    <string name="title_no_results_were_found">No results were found</string>
 </resources>
