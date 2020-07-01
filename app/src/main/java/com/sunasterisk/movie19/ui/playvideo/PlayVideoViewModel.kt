@@ -2,11 +2,11 @@ package com.sunasterisk.movie19.ui.playvideo
 
 import com.sunasterisk.movie19.base.BaseViewModel
 import com.sunasterisk.movie19.data.repository.MovieTrailerRepository
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.kotlin.addTo
-import io.reactivex.rxjava3.schedulers.Schedulers
-import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.addTo
+import io.reactivex.schedulers.Schedulers
+import io.reactivex.subjects.PublishSubject
 
 class PlayVideoViewModel(private val repository: MovieTrailerRepository) : BaseViewModel() {
 

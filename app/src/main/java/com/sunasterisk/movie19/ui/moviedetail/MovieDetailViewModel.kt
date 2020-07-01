@@ -1,15 +1,17 @@
 package com.sunasterisk.movie19.ui.moviedetail
 
+import android.graphics.Color
 import androidx.databinding.ObservableField
+import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.sunasterisk.movie19.base.BaseViewModel
 import com.sunasterisk.movie19.data.model.Cast
 import com.sunasterisk.movie19.data.model.DataMovieDetail
 import com.sunasterisk.movie19.data.repository.CastRepository
 import com.sunasterisk.movie19.data.repository.MovieDetailRepository
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.kotlin.addTo
-import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.addTo
+import io.reactivex.schedulers.Schedulers
 
 class MovieDetailViewModel(
     private val castRepository: CastRepository,
@@ -31,13 +33,19 @@ class MovieDetailViewModel(
             .addTo(compositeDisposable)
     }
 
-    fun getMovieDetail(movieId: Int) {
+    fun getMovieDetail(movieId: Int, toolbar: CollapsingToolbarLayout) {
         movieDetailRepository.getMovieDetail(movieId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
+            .subscribe({
                 movieDetail.set(it)
-            }
+                toolbar.title = it.title
+                toolbar.setCollapsedTitleTextColor(Color.WHITE)
+            },
+                {
+
+                }
+            )
             .addTo(compositeDisposable)
     }
 }
