@@ -1,9 +1,6 @@
 package com.sunasterisk.movie19.data.api
 
-import com.sunasterisk.movie19.data.model.Data
-import com.sunasterisk.movie19.data.model.DataCredits
-import com.sunasterisk.movie19.data.model.DataGenre
-import com.sunasterisk.movie19.data.model.Genre
+import com.sunasterisk.movie19.data.model.*
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -27,4 +24,7 @@ interface ApiService {
 
     @GET("movie/{movie_id}/credits")
     fun getCastAndCrew(@Path("movie_id") movieId: Int): Observable<DataCredits>
+
+    @GET("movie/{movie_id}")
+    fun getMovieDetail(@Path("movie_id") movieId: Int): Observable<DataMovieDetail>
 }
