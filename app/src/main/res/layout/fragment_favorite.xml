@@ -1,12 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <data />
+    <data>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+        <variable
+            name="viewModel"
+            type="com.sunasterisk.movie19.ui.favorite.FavoriteViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/holo_green_light"
-        tools:context=".ui.favorite.FavoriteFragment" />
+        android:background="@color/colorAlabaster"
+        tools:context=".ui.favorite.view.FavoriteFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarFavorite"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:textSize="@dimen/dp_30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/title_toolbar_favorite" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewFavoriteMovie"
+            dataMovieFavorite="@{viewModel.movieFavorites}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:padding="@dimen/dp_5"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarFavorite"
+            app:spanCount="2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

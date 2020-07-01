@@ -8,9 +8,13 @@ import com.sunasterisk.movie19.R
 import com.sunasterisk.movie19.base.BaseActivity
 import com.sunasterisk.movie19.data.api.ApiService
 import com.sunasterisk.movie19.data.api.ServiceBuilder
+import com.sunasterisk.movie19.data.model.Favorite
 import com.sunasterisk.movie19.data.model.Movie
 import com.sunasterisk.movie19.data.repository.CastRepository
+import com.sunasterisk.movie19.data.repository.FavoriteRepository
 import com.sunasterisk.movie19.data.repository.MovieDetailRepository
+import com.sunasterisk.movie19.data.source.local.FavoriteDatabase
+import com.sunasterisk.movie19.data.source.local.FavoriteLocalDataSource
 import com.sunasterisk.movie19.data.source.remote.CastRemoteDataSource
 import com.sunasterisk.movie19.data.source.remote.MovieDetailRemoteDataSource
 import com.sunasterisk.movie19.databinding.ActivityMovieDetailBinding
@@ -30,8 +34,17 @@ class MovieDetailActivity : BaseActivity<ActivityMovieDetailBinding>() {
         val castRemoteDataSource = CastRemoteDataSource(apiService)
         val movieDetailRemoteDataSource = MovieDetailRemoteDataSource(apiService)
         val castRepository = CastRepository(castRemoteDataSource)
+        val database = FavoriteDatabase.getIntance(this)
+        val favoriteDao = database.favoriteDao()
+        val favoriteLocalDataSource = FavoriteLocalDataSource(favoriteDao)
+        val favoriteRepository = FavoriteRepository(favoriteLocalDataSource)
+        val movieFavoriteRepository = FavoriteRepository(favoriteRepository)
         val movieDetailRepository = MovieDetailRepository(movieDetailRemoteDataSource)
-        val factory = MovieDetailViewModelFactory(castRepository, movieDetailRepository)
+        val factory = MovieDetailViewModelFactory(
+            castRepository,
+            movieDetailRepository,
+            movieFavoriteRepository
+        )
         ViewModelProvider(
             this,
             factory
@@ -52,11 +65,32 @@ class MovieDetailActivity : BaseActivity<ActivityMovieDetailBinding>() {
 
         databinding.recyclerViewCast.adapter = castAdapter
         databinding.viewModel = viewModel
-        viewModel.getCasts(movieId)
-        viewModel.getMovieDetail(movieId)
+        viewModel.getCasts(movieId, imageFavorite, this)
+        viewModel.getMovieDetail(movieId, collapsingtoolbarMovieDetail)
+
+        imageFavorite.setOnClickListener {
+            viewModel.setFavorite()
+        }
 
         imageViewVideo.setOnClickListener {
             startActivity(PlayVideoActivity.getIntent(this, movieId))
+        }
+
+        textViewNameMovie.isSelected = true
+        setActionbar()
+    }
+
+    fun setActionbar() {
+        setSupportActionBar(toolbarMovieDetail)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_back_white)
+            setDisplayShowHomeEnabled(true)
+            setDisplayShowTitleEnabled(false)
+        }
+
+        toolbarMovieDetail.setNavigationOnClickListener {
+            finish()
         }
     }
 
@@ -64,5 +98,9 @@ class MovieDetailActivity : BaseActivity<ActivityMovieDetailBinding>() {
         fun getIntent(context: Context, movie: Movie) =
             Intent(context, MovieDetailActivity::class.java)
                 .putExtra(Constants.EXTRA_ID_MOVIE, movie.id)
+
+        fun getIntentFavorite(context: Context, movie: Favorite) =
+            Intent(context, MovieDetailActivity::class.java)
+                .putExtra(Constants.EXTRA_ID_MOVIE, movie.idMovie)
     }
 }

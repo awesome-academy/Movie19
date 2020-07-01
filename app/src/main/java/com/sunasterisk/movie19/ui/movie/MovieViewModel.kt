@@ -7,12 +7,12 @@ import com.sunasterisk.movie19.data.model.Data
 import com.sunasterisk.movie19.data.model.MovieParent
 import com.sunasterisk.movie19.data.repository.MovieRepository
 import com.sunasterisk.movie19.utils.Constants
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.Function4
-import io.reactivex.rxjava3.kotlin.addTo
-import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.functions.Function4
+import io.reactivex.rxkotlin.addTo
+import io.reactivex.schedulers.Schedulers
 
 class MovieViewModel(private val repository: MovieRepository) : BaseViewModel() {
 
@@ -58,7 +58,7 @@ class MovieViewModel(private val repository: MovieRepository) : BaseViewModel() 
             topRated,
             popular,
             nowPlaying,
-            Function4 { upComing: Data,
+            Function4() { upComing: Data,
                         topRated: Data,
                         popular: Data,
                         nowPlaying: Data

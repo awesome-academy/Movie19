@@ -3,7 +3,7 @@ package com.sunasterisk.movie19.data.source.remote
 import com.sunasterisk.movie19.data.api.ApiService
 import com.sunasterisk.movie19.data.model.Data
 import com.sunasterisk.movie19.data.source.MovieDataSource
-import io.reactivex.rxjava3.core.Observable
+import io.reactivex.Observable
 
 class MovieRemoteDataSource(private val api: ApiService) : MovieDataSource.Remote {
 

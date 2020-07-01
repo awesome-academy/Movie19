@@ -2,7 +2,7 @@ package com.sunasterisk.movie19.data.repository
 
 import com.sunasterisk.movie19.data.model.DataVideo
 import com.sunasterisk.movie19.data.source.VideoTrailerDataSource
-import io.reactivex.rxjava3.core.Observable
+import io.reactivex.Observable
 
 class MovieTrailerRepository(
     private val remote: VideoTrailerDataSource.Remote
